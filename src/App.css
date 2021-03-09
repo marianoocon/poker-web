@@ -1,0 +1,14 @@
+.titleTable {
+  text-align: center;
+  font-size: 27px;
+  margin-top: 30px;
+}
+
+.roomOptions {
+  text-align: center;
+  display: grid;
+  width: 160px;
+  align-self: center;
+  margin-left: 670px;
+  margin-top: 30px;
+}
