@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+        body {
+            margin: 0;
+            padding-bottom: 3rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        #form {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 0.25rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            height: 3rem;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+
+        #input {
+            border: none;
+            padding: 0 1rem;
+            flex-grow: 1;
+            border-radius: 2rem;
+            margin: 0.25rem;
+        }
+
+        #input:focus {
+            outline: none;
+        }
+
+        #form>button {
+            background: #333;
+            border: none;
+            padding: 0 1rem;
+            margin: 0.25rem;
+            border-radius: 3px;
+            outline: none;
+            color: #fff;
+        }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #messages>li {
+            padding: 0.5rem 1rem;
+        }
+
+        #messages>li:nth-child(odd) {
+            background: #efefef;
+        }
+
+
+        /* The snackbar - position it at the bottom and in the middle of the screen */
+        #snackbar, #snackbar2 {
+            visibility: hidden;
+            /* Hidden by default. Visible on click */
+            min-width: 250px;
+            /* Set a default minimum width */
+            margin-left: -125px;
+            /* Divide value of min-width by 2 */
+            background-color: #333;
+            /* Black background color */
+            color: #fff;
+            /* White text color */
+            text-align: center;
+            /* Centered text */
+            border-radius: 2px;
+            /* Rounded borders */
+            padding: 16px;
+            /* Padding */
+            position: fixed;
+            /* Sit on top of the screen */
+            z-index: 1;
+            /* Add a z-index if needed */
+            left: 50%;
+            /* Center the snackbar */
+            bottom: 30px;
+            /* 30px from the bottom */
+        }
+
+        /* Show the snackbar when clicking on a button (class added with JavaScript) */
+        #snackbar.show, #snackbar2.show {
+            visibility: visible;
+            /* Show the snackbar */
+            /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        /* Animations to fade the snackbar in and out */
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="button">Send</button>
+    <div id="snackbar">Someone voted</div>
+    <div id="snackbar2">Host showed the results</div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        function showSnackbar(isResults) {
+            // Get the snackbar DIV
+            var x = isResults ? document.getElementById("snackbar2") : document.getElementById("snackbar");
+
+            // Add the "show" class to DIV
+            x.className = "show";
+
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
+        }
+
+        var input = document.getElementById('button');
+
+        input.addEventListener('click', function (e) {
+            socket.emit('userVote', 3);
+        });
+
+        socket.on('userVote', function (msg) {
+            showSnackbar()
+        });
+        socket.on('showResults', function (msg) {
+            showSnackbar(true)
+        })
+        </script>
+    </script>
+</body>
+
+</html>
