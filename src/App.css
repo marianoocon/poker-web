@@ -1,14 +1,41 @@
 .titleTable {
-  text-align: center;
+  text-align: left;
   font-size: 27px;
   margin-top: 30px;
+  margin-left: 40px;
+  font-weight: bold;
 }
 
 .roomOptions {
   text-align: center;
-  display: grid;
+  display: flex;
   width: 160px;
-  align-self: center;
-  margin-left: 670px;
+  margin-left: 690px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.memberCard{
+  width: 120px;
+  height: 180px;
+  text-align: center;
+  color:aquamarine;
   margin-top: 30px;
+}
+
+.members{
+  display: flex;
+  justify-content: space-around;
+}
+.memberCard h1{
+  color:#4fabc0
+}
+.titleTableLand {
+  text-align: center;
+  font-size: 27px;
+  margin-top: 30px;
+  margin-left: 40px;
+  font-weight: bold;
 }
