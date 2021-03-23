@@ -65,7 +65,7 @@ export default function Create() {
           </Button>
 
           <a href='/Dumb' style={{textDecoration:'none'}}>
-            <Button  color="primary">
+            <Button color="primary">
               Join
           </Button>
 
