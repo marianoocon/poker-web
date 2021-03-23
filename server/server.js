@@ -1,11 +1,28 @@
 const app = require('express')();
 const http = require('http').Server(app);
+
+const initDatabase = require('./db').initDatabase;
+const getDatabase = require('./db').getDatabase;
 const io = require('socket.io')(http);
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
+initDatabase(() => {
+  http.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
+  });
+})
+
+app.get('/', handleRoot);
+
+function handleRoot(req, res) {
+  const db = getDatabase();
+  const collection = db.collection('rooms');
+  collection.find({}).toArray((err, data) => {
+    if (err) throw err;
+    console.log(data);
+    res.json(data);
+  })
+}
 
 io.on('connection', (socket) => {
   const rooms = ['room1', 'room2'];
@@ -24,8 +41,4 @@ io.on('connection', (socket) => {
     console.log('vote', vote) 
     io.to(rooms[random]).emit('userVote', vote);
   });
-});
-
-http.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
 });
