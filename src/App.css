@@ -36,6 +36,16 @@ a {
   text-align: center;
   font-size: 27px;
   margin-top: 30px;
-  margin-left: 40px;
+  margin-left: 0px;
   font-weight: bold;
+}
+
+.imgWork{
+  border:1px solid #4fabc0;
+  width:302px
+}
+
+.howDiv{
+  margin-top: 30px;
+  width:300px
 }

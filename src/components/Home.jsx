@@ -7,12 +7,14 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dumb from './joindummy'
+import Join from "./joinDialog";
+import Create from './createDialog'
 import {
-    BrowserRouter as Router,
-    Link,
-    Switch,
-    Route
-  } from "react-router-dom";
+  BrowserRouter as Router,
+  Link,
+  Switch,
+  Route
+} from "react-router-dom";
 
 export default function Inicio() {
   const [open, setOpen] = React.useState(false);
@@ -26,92 +28,62 @@ export default function Inicio() {
   };
 
   return (
-      <Router>
+    <Router>
 
-    <div>
+      <div>
         <div className="titleTableLand">
           Poker Table
-    </div>
-    <div className='roomOptions'>
-      <div>
-        <Link to='/Dumb'>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen} style={{marginTop:30}} >
-        Join Room
-      </Button>
 
-        </Link>
+    </div>
+        <div style={{ textAlign: 'center', fontSize: 20 }}>
+          <p>Set up your planning poker in seconds, start estimating story points in scrum poker now</p>
+
+        </div>
+        <div className='roomOptions'>
+          <Join />
+
+
+        </div>
+        <Create />
+      </div>
+      <div style={{marginLeft:270, width:500}}>
+        <h3 style={{ color: '#4fabc0', marginLeft: 230 }}>How it works</h3>
+        <div style={{ marginLeft: 210, textAlign: 'left', display: 'flex', marginBottom:50, marginBottom:50}}>
+          <div className='imgWork'>
+            <img src="https://www.scrumpoker-online.org/en/assets/images/create_scrum_poker_room.png" alt="" srcset="" style={{ height:'auto', borderWidth: 4, borderColor: "#20232a", width:290, objectFit:'cover'}} />
+
           </div>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To enter a room please insert a code.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Room Code"
-            type="number"
-            fullWidth
-            />
-          
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
+          <div className='howDiv'>
 
-          <a href='/Dumb' style={{textDecoration:'none'}}>
-            <Button  color="primary">
-              Join
-          </Button>
+            <p style={{ marginLeft: 20 }}>Create a instant room</p>
+            <p style={{ marginLeft: 20, width: 340 }}>Set-up in seconds. Use the instant room feature or sign-up to keep the same room number for future plannings - making the set-up even faster</p>
+        </div>
+          </div>
+        <div style={{ marginLeft: 210, textAlign: 'left', display: 'flex', marginBottom:50 }}>
+          <div>
 
-            </a>
-        </DialogActions>
-      </Dialog>
+            <p style={{ marginLeft: 20 }}>Invite others</p>
+            <p style={{ marginLeft: 20, width: 340 }}>Invite your colleagues to your planning poker by sharing the room id, let them scan the QR code with their mobile or just send them the link.
 
+</p>
+          </div>
+          <div className='imgWork'>
+            <img src="https://www.scrumpoker-online.org/en/assets/images/share_planning_poker.png" alt="" srcset="" style={{ height: 120, borderWidth: 4, borderColor: "#20232a", }} />
+
+          </div>
+        </div>
+        <div style={{ marginLeft: 210, textAlign: 'left', display: 'flex', marginBottom:50 }}>
+          <div className='imgWork'>
+            <img src="https://www.scrumpoker-online.org/en/assets/images/play_scrum_poker.png" alt="" srcset="" style={{ height: 120, borderWidth: 4, borderColor: "#20232a", }} />
+
+          </div>
+          <div>
+
+            <p style={{ marginLeft: 20 }}>Start estimating stories</p>
+            <p style={{ marginLeft: 20, width: 340 }}>Once your team has entered the room, you can see them online and the scrum poker can start. The team can submit estimates, see who has provided estimates and show the results.</p>
+          </div>
+        </div>
       </div>
-      <div>
-
-      <Link to='/Dumb'>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen} style={{marginTop:30, alignSelf:'center'}} >
-        Create room
-      </Button>
-
-        </Link>
-        
-    </div>
-    <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            awawda
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Room Code"
-            type="number"
-            fullWidth
-            />
-          
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-
-          <a href='/dumb' style={{textDecoration:'none'}}>
-            <Button  color="primary">
-              Join
-          </Button>
-
-            </a>
-        </DialogActions>
-      </Dialog>
-      </div>
-            </Router>
+    </Router>
   );
 }
