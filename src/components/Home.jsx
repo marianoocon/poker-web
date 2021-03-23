@@ -6,9 +6,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Dumb from './joindummy'
-import Join from "./joinDialog";
-import Create from './createDialog'
+import JoinUi from './JoinUI'
+import Join from "./JoinDialog";
+import Create from './CreateDialog'
 import {
   BrowserRouter as Router,
   Link,

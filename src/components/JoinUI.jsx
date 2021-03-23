@@ -36,7 +36,7 @@ const rows = [
   createData('0'),
   createData('8'),
 ];
-function Dumb() {
+function JoinUi() {
 
   return (
     <div>
@@ -148,4 +148,4 @@ function Dumb() {
   );
 }
 
-export default Dumb;
+export default JoinUi;
