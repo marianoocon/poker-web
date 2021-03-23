@@ -36,7 +36,7 @@ const rows = [
   createData('0'),
   createData('8'),
 ];
-function JoinUi() {
+function Room() {
 
   return (
     <div>
@@ -148,4 +148,4 @@ function JoinUi() {
   );
 }
 
-export default JoinUi;
+export default Room;

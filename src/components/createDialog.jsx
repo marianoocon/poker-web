@@ -27,7 +27,7 @@ export default function Create() {
         <div>
 
         <div>
-        <Link to='/Dumb'>
+        <Link to='/'>
       <Button variant="outlined" color="primary" onClick={handleClickOpen} style={{marginTop:30, marginLeft:677}} >
         Create room
       </Button>

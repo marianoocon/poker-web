@@ -13,7 +13,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import JoinUi from './components/JoinUI'
+import Room from './components/Room'
 import Inicio from './components/Home';
 function App() {
   const [open, setOpen] = React.useState(false);
@@ -34,8 +34,8 @@ function App() {
           <Route exact path='/'>
             <Inicio/>
           </Route>
-          <Route path='/JoinUi' component={JoinUi}>
-            <JoinUi />
+          <Route path='/Room' component={Room}>
+            <Room />
           </Route>
 
         </div>

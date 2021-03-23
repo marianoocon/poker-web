@@ -55,7 +55,7 @@ export default function Join() {
             Cancel
           </Button>
 
-          <a href='/JoinUi' style={{textDecoration:'none'}}>
+          <a href='/Room' style={{textDecoration:'none'}}>
             <Button  color="primary">
               Join
           </Button>
