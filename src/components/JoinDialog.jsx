@@ -27,7 +27,7 @@ export default function Join() {
         <div>
 
         <div>
-        <Link to='/Dumb'>
+        <Link to='/Room'>
       <Button variant="outlined" color="primary" onClick={handleClickOpen} style={{marginTop:30}} >
         Join Room
       </Button>

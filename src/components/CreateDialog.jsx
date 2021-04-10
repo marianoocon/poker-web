@@ -27,7 +27,7 @@ export default function Create() {
         <div>
 
         <div>
-        <Link to='/'>
+        <Link to='Room'>
       <Button variant="outlined" color="primary" onClick={handleClickOpen} style={{marginTop:30, marginLeft:677}} >
         Create room
       </Button>
@@ -41,6 +41,7 @@ export default function Create() {
             To create a room please enter the next info
           </DialogContentText>
           <TextField
+              required
               autoFocus
               margin="dense"
               id="name"
@@ -49,6 +50,7 @@ export default function Create() {
               fullWidth
               />
           <TextField
+            required  
             autoFocus
             margin="dense"
             id="name"
@@ -64,7 +66,7 @@ export default function Create() {
             Cancel
           </Button>
 
-          <a href='/Dumb' style={{textDecoration:'none'}}>
+          <a href='/Room' style={{textDecoration:'none'}}>
             <Button color="primary">
               Join
           </Button>
