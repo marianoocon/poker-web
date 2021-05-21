@@ -5,7 +5,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -20,19 +20,7 @@ import db from './firebase.config.js'
 import Inicio from './components/Home';
 function App() {
   const [open, setOpen] = React.useState(false);
-  const [rooms, setRooms]= useState([])
-  const fetchRooms=async() => {
-    const response=db.collection('rooms')
-    const data=await response.get();
-
-    data.docs.forEach(item=>{
-      setRooms([...rooms, item.data()])
-    })
-  }
-  useEffect(() => {
-    fetchRooms();
-  }
-  , [])
+  const collection = [db.collection]
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -40,7 +28,10 @@ function App() {
   const handleClose = () => {
     setOpen(false);
   };
-  
+
+  function dataShow() {
+    
+  }
 
   return (
     <Router>
@@ -49,9 +40,7 @@ function App() {
           <div className="titleTable">
           </div>
           <Route exact path='/'>
-      <a href='#' onClick={GetRoomService}>Show available rooms</a>
-      <FlatList list/>
-            <Inicio/>
+            <Inicio />
           </Route>
           <Route path='/Room' component={Room}>
             <Room />

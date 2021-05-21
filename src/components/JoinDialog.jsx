@@ -7,33 +7,33 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {
-    BrowserRouter as Router,
-    Link,
-    Redirect
-  } from "react-router-dom";
+  BrowserRouter as Router,
+  Link,
+  Redirect
+} from "react-router-dom";
 
 export default function Join() {
-    const [open, setOpen] = React.useState(false);
-  
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
-  
-    return (
-        <div>
+  const [open, setOpen] = React.useState(false);
 
-        <div>
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div>
+
+      <div>
         <Link to='/Room'>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen} style={{marginTop:30}} >
-        Join Room
+          <Button variant="contained" color="primary" onClick={handleClickOpen} style={{ marginTop: 30, marginRight:0, width:220, marginLeft:600, backgroundColor:'#4eabc0'}} >
+            Join Room
       </Button>
 
         </Link>
-          </div>
+      </div>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
         <DialogContent>
@@ -47,23 +47,23 @@ export default function Join() {
             label="Room Code"
             type="number"
             fullWidth
-            />
-          
+          />
+
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
 
-          <a href='/Room' style={{textDecoration:'none'}}>
-            <Button  color="primary">
+          <a href='/Room' style={{ textDecoration: 'none' }}>
+            <Button color="primary">
               Join
           </Button>
 
-            </a>
+          </a>
         </DialogActions>
       </Dialog>
-        </div>
+    </div>
 
-    )
-}   
+  )
+}

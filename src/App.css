@@ -1,37 +1,40 @@
 .titleTable {
   text-align: left;
   font-size: 27px;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-left: 40px;
   font-weight: bold;
 }
 
 .roomOptions {
   text-align: center;
-  display: flex;
+  display: flexbox;
   width: 160px;
-  margin-left: 690px;
+  margin-left: 630px;
+  justify-content: space-between;
 }
 
 a {
   text-decoration: none;
 }
 
-.memberCard{
+.memberCard {
   width: 120px;
   height: 180px;
   text-align: center;
-  color:aquamarine;
+  color: aquamarine;
   margin-top: 30px;
 }
 
-.members{
+.members {
   display: flex;
   justify-content: space-around;
 }
-.memberCard h1{
-  color:#4fabc0
+
+.memberCard h1 {
+  color: #4fabc0
 }
+
 .titleTableLand {
   text-align: center;
   font-size: 27px;
@@ -40,12 +43,12 @@ a {
   font-weight: bold;
 }
 
-.imgWork{
-  border:1px solid #4fabc0;
-  width:302px
+.imgWork {
+  border: 1px solid #4fabc0;
+  width: 342px
 }
 
-.howDiv{
+.howDiv {
   margin-top: 30px;
-  width:300px
+  width: 300px
 }
